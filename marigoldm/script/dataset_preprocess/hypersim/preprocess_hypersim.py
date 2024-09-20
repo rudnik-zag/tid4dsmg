@@ -77,11 +77,11 @@ if "__main__" == __name__:
             assert os.path.exists(os.path.join(dataset_dir, dist_path))
 
             with h5py.File(os.path.join(dataset_dir, rgb_path), "r") as f:
-                rgb = np.array(f["dataset"]).astype(float)
+                rgb = np.array(f["datasets"]).astype(float)
             with h5py.File(os.path.join(dataset_dir, dist_path), "r") as f:
-                dist_from_center = np.array(f["dataset"]).astype(float)
+                dist_from_center = np.array(f["datasets"]).astype(float)
             with h5py.File(os.path.join(dataset_dir, render_entity_id_path), "r") as f:
-                render_entity_id = np.array(f["dataset"]).astype(int)
+                render_entity_id = np.array(f["datasets"]).astype(int)
 
             # Tone map
             rgb_color_tm = tone_map(rgb, render_entity_id)

@@ -1,4 +1,4 @@
-# dataset settings
+# datasets settings
 
 Cityscapes_dataset = dict(
     lib="CityscapesDataset",

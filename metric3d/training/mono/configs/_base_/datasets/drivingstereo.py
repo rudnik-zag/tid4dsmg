@@ -1,4 +1,4 @@
-# dataset settings
+# datasets settings
 
 DrivingStereo_dataset = dict(
     lib="DrivingStereoDataset",

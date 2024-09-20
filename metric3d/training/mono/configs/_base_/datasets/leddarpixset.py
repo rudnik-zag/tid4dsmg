@@ -1,4 +1,4 @@
-# dataset settings
+# datasets settings
 
 LeddarPixSet_dataset = dict(
     lib="LeddarPixSetDataset",

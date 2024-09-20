@@ -1,4 +1,4 @@
-# dataset settings
+# datasets settings
 
 NuScenes_dataset = dict(
     lib="NuScenesDataset",

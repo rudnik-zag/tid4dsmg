@@ -101,7 +101,7 @@ class HDNRandomLoss(nn.Module):
 
         device = target.device
 
-        batches_dataset = kwargs["dataset"]
+        batches_dataset = kwargs["datasets"]
         self.batch_valid = torch.tensor(
             [
                 1 if batch_dataset not in self.disable_dataset else 0

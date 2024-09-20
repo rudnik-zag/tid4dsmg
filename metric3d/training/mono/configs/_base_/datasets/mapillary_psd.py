@@ -1,4 +1,4 @@
-# dataset settings
+# datasets settings
 
 MapillaryPSD_dataset = dict(
     lib="MapillaryPSDDataset",

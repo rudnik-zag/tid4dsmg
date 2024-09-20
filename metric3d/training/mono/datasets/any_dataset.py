@@ -116,7 +116,7 @@ class AnyDataset(BaseDataset):
 
         self.tmpl_info = ["rgb_sr", "rgb_pre", "rgb_next"]
 
-        # dataset info
+        # datasets info
         self.data_name = cfg.data_name
         self.data_type = (
             cfg.data_type

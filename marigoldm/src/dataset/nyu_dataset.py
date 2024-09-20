@@ -32,7 +32,7 @@ class NYUDataset(BaseDepthDataset):
         **kwargs,
     ) -> None:
         super().__init__(
-            # NYUv2 dataset parameter
+            # NYUv2 datasets parameter
             min_depth=1e-3,
             max_depth=10.0,
             has_filled_depth=True,

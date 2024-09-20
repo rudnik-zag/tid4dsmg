@@ -113,7 +113,7 @@ class HypersimDataset(BaseDataset):
 
         # depth = self.load_data(depth_path)
         with h5py.File(depth_path, "r") as f:
-            depth = f["dataset"][:]
+            depth = f["datasets"][:]
         np.nan_to_num(depth, copy=False, nan=0)  # fill nan in gt
         if depth is None:
             self.logger.info(f"{depth_path} has errors.")
@@ -125,7 +125,7 @@ class HypersimDataset(BaseDataset):
 
     def load_norm_label(self, norm_path, H, W, depth, K):
         with h5py.File(norm_path, "r") as f:
-            normal = f["dataset"][:]
+            normal = f["datasets"][:]
         np.nan_to_num(normal, copy=False, nan=0)
         normal[:, :, 1:] *= -1
         normal = normal.astype(np.float)

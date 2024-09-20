@@ -64,7 +64,7 @@ class GRUSequenceLoss(nn.Module):
     ):
         device = target.device
 
-        batches_dataset = kwargs["dataset"]
+        batches_dataset = kwargs["datasets"]
         self.batch_with_stereo = torch.tensor(
             [
                 1 if batch_dataset in self.stereo_dataset else 0
@@ -176,7 +176,7 @@ class GRUSequenceLoss(nn.Module):
 #     def forward(self, predictions_list, target, stereo_depth, confidence_list=None, mask=None, **kwargs):
 #         device = target.device
 
-#         batches_dataset = kwargs['dataset']
+#         batches_dataset = kwargs['datasets']
 #         self.batch_with_stereo = torch.tensor([1 if batch_dataset in self.stereo_dataset else 0 \
 #                                               for batch_dataset in batches_dataset], device=device)[:,None,None,None]
 

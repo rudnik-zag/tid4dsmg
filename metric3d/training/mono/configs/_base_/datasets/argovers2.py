@@ -1,4 +1,4 @@
-# dataset settings
+# datasets settings
 
 Argovers2_dataset = dict(
     lib="Argovers2Dataset",

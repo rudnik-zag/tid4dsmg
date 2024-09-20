@@ -55,7 +55,7 @@ class ScanNetDataset(BaseDataset):
     #                 target=depth_out,
     #                 intrinsic=curr_intrinsic_mat,
     #                 filename=filename,
-    #                 dataset=self.data_name,
+    #                 datasets=self.data_name,
     #                 cam_model=cam_models_stacks,
     #                 ref_input=rgbs[1:],
     #                 tmpl_flg=False,

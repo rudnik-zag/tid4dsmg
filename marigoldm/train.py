@@ -249,7 +249,7 @@ if "__main__" == __name__:
     else:
         loader_generator = torch.Generator().manual_seed(loader_seed)
 
-    # Training dataset
+    # Training datasets
     depth_transform: DepthNormalizerBase = get_depth_normalizer(
         cfg_normalizer=cfg.depth_normalization
     )
@@ -288,7 +288,7 @@ if "__main__" == __name__:
             shuffle=True,
             generator=loader_generator,
         )
-    # Validation dataset
+    # Validation datasets
     val_loaders: List[DataLoader] = []
     for _val_dic in cfg_data.val:
         _val_dataset = get_dataset(
@@ -304,7 +304,7 @@ if "__main__" == __name__:
         )
         val_loaders.append(_val_loader)
 
-    # Visualization dataset
+    # Visualization datasets
     vis_loaders: List[DataLoader] = []
     for _vis_dic in cfg_data.vis:
         _vis_dataset = get_dataset(

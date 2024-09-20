@@ -553,7 +553,7 @@ class MarigoldTrainer:
             else:
                 raise RuntimeError(f"Unknown alignment type: {self.cfg.eval.alignment}")
 
-            # Clip to dataset min max
+            # Clip to datasets min max
             depth_pred = np.clip(
                 depth_pred,
                 a_min=data_loader.dataset.min_depth,

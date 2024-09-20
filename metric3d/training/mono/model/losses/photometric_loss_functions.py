@@ -236,7 +236,7 @@ class PhotometricGeometricLoss(nn.Module):
 
 
 # @torch.no_grad()
-# def compute_errors(gt, pred, dataset):
+# def compute_errors(gt, pred, datasets):
 #     # pred : b c h w
 #     # gt: b h w
 
@@ -250,30 +250,30 @@ class PhotometricGeometricLoss(nn.Module):
 
 #     pred = pred.view(batch_size, h, w)
 
-#     if dataset == 'kitti':
+#     if datasets == 'kitti':
 #         crop_mask = gt[0] != gt[0]
 #         y1, y2 = int(0.40810811 * gt.size(1)), int(0.99189189 * gt.size(1))
 #         x1, x2 = int(0.03594771 * gt.size(2)), int(0.96405229 * gt.size(2))
 #         crop_mask[y1:y2, x1:x2] = 1
 #         max_depth = 80
 
-#     if dataset == 'cs':
+#     if datasets == 'cs':
 #         crop_mask = gt[0] != gt[0]
 #         crop_mask[256:, 192:1856] = 1
 #         max_depth = 80
 
-#     if dataset == 'nyu':
+#     if datasets == 'nyu':
 #         crop_mask = gt[0] != gt[0]
 #         crop = np.array([45, 471, 41, 601]).astype(np.int32)
 #         crop_mask[crop[0]:crop[1], crop[2]:crop[3]] = 1
 #         max_depth = 10
 
-#     if dataset == 'bonn':
+#     if datasets == 'bonn':
 #         crop_mask = gt[0] != gt[0]
 #         crop_mask[:,:] = 1
 #         max_depth = 10
 
-#     if dataset == 'ddad':
+#     if datasets == 'ddad':
 #         crop_mask = gt[0] != gt[0]
 #         crop_mask[:,:] = 1
 #         max_depth = 200

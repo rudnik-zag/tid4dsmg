@@ -77,7 +77,7 @@ class BaseDepthDataset(Dataset):
     ) -> None:
         super().__init__()
         self.mode = mode
-        # dataset info
+        # datasets info
         self.filename_ls_path = filename_ls_path
         self.dataset_dir = dataset_dir
         assert os.path.exists(
@@ -102,7 +102,7 @@ class BaseDepthDataset(Dataset):
                 s.split() for s in f.readlines()
             ]  # [['rgb.png', 'depth.tif'], [], ...]
 
-        # Tar dataset
+        # Tar datasets
         self.tar_obj = None
         self.is_tar = (
             True
@@ -209,7 +209,7 @@ class BaseDepthDataset(Dataset):
 
     def _read_depth_file(self, rel_path):
         depth_in = self._read_image(rel_path)
-        #  Replace code below to decode depth according to dataset definition
+        #  Replace code below to decode depth according to datasets definition
         depth_decoded = depth_in
 
         return depth_decoded

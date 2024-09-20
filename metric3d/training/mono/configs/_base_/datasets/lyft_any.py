@@ -1,4 +1,4 @@
-# dataset settings
+# datasets settings
 
 LyftAny_dataset = dict(
     lib="AnyDataset",

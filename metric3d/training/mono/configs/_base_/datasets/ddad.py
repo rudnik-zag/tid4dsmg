@@ -1,4 +1,4 @@
-# dataset settings
+# datasets settings
 
 DDAD_dataset = dict(
     lib="DDADDataset",

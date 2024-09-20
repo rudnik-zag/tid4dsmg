@@ -252,10 +252,10 @@ def train_by_iters(
 
             # check training data
             # for i in range(data['target'].shape[0]):
-            # if 'DDAD' in data['dataset'][i] or \
-            #     'Lyft' in data['dataset'][i] or \
-            #     'DSEC' in data['dataset'][i] or \
-            #     'Argovers2' in data['dataset'][i]:
+            # if 'DDAD' in data['datasets'][i] or \
+            #     'Lyft' in data['datasets'][i] or \
+            #     'DSEC' in data['datasets'][i] or \
+            #     'Argovers2' in data['datasets'][i]:
             #     replace = True
             # else:
             #     replace = False
@@ -474,7 +474,7 @@ def validate_multiple_dataset(cfg, iter, model, val_dataloaders, tb_logger):
     for val_dataloader in val_dataloaders:
         val_err = validate(cfg, iter, model, val_dataloader, tb_logger)
         val_errs.update(val_err)
-    # mean of all dataset
+    # mean of all datasets
     mean_val_err = {}
     for k, v in val_errs.items():
         metric = "AllData_eval/" + k.split("/")[-1]
@@ -488,7 +488,7 @@ def validate_multiple_dataset(cfg, iter, model, val_dataloaders, tb_logger):
 
 def validate(cfg, iter, model, val_dataloader, tb_logger):
     """
-    Validate the model on single dataset
+    Validate the model on single datasets
     """
     model.eval()
     dist.barrier()
@@ -618,7 +618,7 @@ def set_random_crop_size_for_iter(
     # else:
     #     crop_size = [sample[1], sample[0]]
 
-    # set crop size for each dataset
+    # set crop size for each datasets
     datasets_groups = len(dataloader.dataset.datasets)
     for i in range(datasets_groups):
         for j in range(len(dataloader.dataset.datasets[i].datasets)):

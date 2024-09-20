@@ -53,12 +53,12 @@ if "__main__" == __name__:
         help="Checkpoint path or hub name.",
     )
 
-    # dataset setting
+    # datasets setting
     parser.add_argument(
         "--dataset_config",
         type=str,
         required=True,
-        help="Path to config file of evaluation dataset.",
+        help="Path to config file of evaluation datasets.",
     )
     parser.add_argument(
         "--base_data_dir",
@@ -143,7 +143,7 @@ if "__main__" == __name__:
         f"Inference settings: checkpoint = `{checkpoint_path}`, "
         f"with denoise_steps = {denoise_steps}, ensemble_size = {ensemble_size}, "
         f"processing resolution = {processing_res}, seed = {seed}; "
-        f"dataset config = `{dataset_config}`."
+        f"datasets config = `{dataset_config}`."
     )
 
     # Random seed

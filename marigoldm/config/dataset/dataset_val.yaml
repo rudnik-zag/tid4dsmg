@@ -22,7 +22,7 @@ dataset:
   #   valid_mask_crop: eigen
 
   # Smaller subsets for faster validation during training
-  # The first dataset is used to calculate main eval metric.
+  # The first datasets is used to calculate main eval metric.
   - name: hypersim
     disp_name: hypersim_val_small_80
     dir: hypersim/hypersim_processed_val.tar

@@ -1,4 +1,4 @@
-# dataset settings
+# datasets settings
 # data will resized/cropped to the canonical size, refer to ._data_base_.py
 
 KITTI_dataset = dict(

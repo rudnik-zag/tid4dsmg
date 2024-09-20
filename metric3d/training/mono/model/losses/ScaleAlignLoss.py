@@ -37,7 +37,7 @@ class ScaleAlignLoss(nn.Module):
 
         # target_scale = (median_pred * scale_factor)
 
-        # batches_dataset = kwargs['dataset']
+        # batches_dataset = kwargs['datasets']
         # self.batch_valid = torch.tensor([1 if batch_dataset not in self.disable_dataset else 0 \
         #     for batch_dataset in batches_dataset], device=device)
 
@@ -45,7 +45,7 @@ class ScaleAlignLoss(nn.Module):
 
         # scale_diff = torch.abs(scale.squeeze(3).squeeze(2).squeeze(1) - scale_factor * median_pred)
 
-        batches_dataset = kwargs["dataset"]
+        batches_dataset = kwargs["datasets"]
         self.batch_valid = torch.tensor(
             [
                 1 if batch_dataset not in self.disable_dataset else 0

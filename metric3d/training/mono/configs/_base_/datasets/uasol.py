@@ -1,4 +1,4 @@
-# dataset settings
+# datasets settings
 
 UASOL_dataset = dict(
     lib="UASOLDataset",

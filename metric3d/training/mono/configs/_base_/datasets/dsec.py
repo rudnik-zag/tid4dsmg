@@ -1,4 +1,4 @@
-# dataset settings
+# datasets settings
 
 DSEC_dataset = dict(
     lib="DSECDataset",

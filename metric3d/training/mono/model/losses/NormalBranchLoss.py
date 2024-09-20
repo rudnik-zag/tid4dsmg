@@ -81,7 +81,7 @@ class NormalBranchLoss(nn.Module):
         loss = 0.0
 
         # device = pad_mask.device
-        # batches_dataset = kwargs['dataset']
+        # batches_dataset = kwargs['datasets']
         # self.batch_with_d2n = torch.tensor([0 if batch_dataset not in self.d2n_dataset else 1 \
         #                                       for batch_dataset in batches_dataset], device=device)[:,None,None,None]
 
@@ -454,7 +454,7 @@ class DeNoConsistencyLoss(nn.Module):
         self.data_type = data_type
         self.sky_id = sky_id
 
-        # For datasets without surface normal gt, enhance its weight (decrease the weight of the dataset with gt).
+        # For datasets without surface normal gt, enhance its weight (decrease the weight of the datasets with gt).
         self.nonorm_data_scale = scale
         self.norm_dataset = norm_dataset
         self.no_sky_dataset = no_sky_dataset
@@ -466,7 +466,7 @@ class DeNoConsistencyLoss(nn.Module):
     def forward(self, **kwargs):
         device = kwargs["mask"].device
 
-        batches_dataset = kwargs["dataset"]
+        batches_dataset = kwargs["datasets"]
         self.batch_with_norm = torch.tensor(
             [
                 self.nonorm_data_scale if batch_dataset not in self.norm_dataset else 1

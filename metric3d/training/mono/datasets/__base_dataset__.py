@@ -200,7 +200,7 @@ class BaseDataset(Dataset):
         # self.tmpl_info = ['rgb_sr', 'rgb_pre', 'rgb_next']
         # self.tgt2ref_pose_lookup = {'rgb_sr': 'cam_ex', 'rgb_pre': 'pose_pre', 'rgb_next': 'pose_next'}
 
-        # dataset info
+        # datasets info
         self.data_name = cfg.data_name
         self.data_type = (
             cfg.data_type

@@ -69,12 +69,12 @@ if "__main__" == __name__:
         "--output_dir", type=str, required=True, help="Output directory."
     )
 
-    # dataset setting
+    # datasets setting
     parser.add_argument(
         "--dataset_config",
         type=str,
         required=True,
-        help="Path to config file of evaluation dataset.",
+        help="Path to config file of evaluation datasets.",
     )
     parser.add_argument(
         "--base_data_dir",
@@ -200,7 +200,7 @@ if "__main__" == __name__:
             )  # avoid 0 disparity
             depth_pred = disparity2depth(disparity_pred)
 
-        # Clip to dataset min max
+        # Clip to datasets min max
         depth_pred = np.clip(
             depth_pred, a_min=dataset.min_depth, a_max=dataset.max_depth
         )
@@ -227,7 +227,7 @@ if "__main__" == __name__:
     # -------------------- Save metrics to file --------------------
     eval_text = f"Evaluation metrics:\n\
     of predictions: {prediction_dir}\n\
-    on dataset: {dataset.disp_name}\n\
+    on datasets: {dataset.disp_name}\n\
     with samples in: {dataset.filename_ls_path}\n"
 
     eval_text += f"min_depth = {dataset.min_depth}\n"

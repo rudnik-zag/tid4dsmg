@@ -49,7 +49,7 @@ class SkipDataLoader(DataLoader):
 
     Args:
         dataset (`torch.utils.data.dataset.Dataset`):
-            The dataset to use to build this datalaoder.
+            The datasets to use to build this datalaoder.
         skip_batches (`int`, *optional*, defaults to 0):
             The number of batches to skip at the beginning.
         kwargs:
@@ -97,7 +97,7 @@ def skip_first_batches(dataloader, num_batches=0):
         if k not in ignore_kwargs
     }
 
-    # Need to provide batch_size as batch_sampler is None for Iterable dataset
+    # Need to provide batch_size as batch_sampler is None for Iterable datasets
     if new_batch_sampler is None:
         kwargs["drop_last"] = dataloader.drop_last
         kwargs["batch_size"] = dataloader.batch_size

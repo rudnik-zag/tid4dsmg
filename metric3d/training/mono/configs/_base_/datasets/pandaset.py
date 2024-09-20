@@ -1,4 +1,4 @@
-# dataset settings
+# datasets settings
 
 Pandaset_dataset = dict(
     lib="PandasetDataset",

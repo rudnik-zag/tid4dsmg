@@ -1,4 +1,4 @@
-# dataset settings
+# datasets settings
 
 DIML_indoor_dataset = dict(
     lib="DIMLDataset",

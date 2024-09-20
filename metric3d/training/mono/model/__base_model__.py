@@ -62,7 +62,7 @@ class BaseDepthModel(nn.Module):
         if self.downsample != None:
             self.pred_upsample(self.downsample, output)
 
-            output["dataset"] = "wild"
+            output["datasets"] = "wild"
         return output
 
     def get_loss(self, paras):
@@ -174,7 +174,7 @@ class BaseDepthModel(nn.Module):
 
         # data type for each batch
         batches_data_type = np.array(kwargs["data_type"])
-        # batches_data_names = np.array(kwargs['dataset'])
+        # batches_data_names = np.array(kwargs['datasets'])
 
         # resize the target
         # if target.shape[2] != prediction.shape[2] and target.shape[3] != prediction.shape[3]:

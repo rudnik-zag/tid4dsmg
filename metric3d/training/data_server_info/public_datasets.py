@@ -24,8 +24,8 @@ db_info["Mapillary_PSD"] = {
     "val_annotations_path": "Mapillary_PSD/Mapillary_PSD/annotations/val.json",
 }
 
-#### Cityscapes dataset
-# Cityscapes sequence dataset, RGBD and consecutive frames annotations
+#### Cityscapes datasets
+# Cityscapes sequence datasets, RGBD and consecutive frames annotations
 db_info["Cityscapes_sequence"] = {
     "db_root": "tbd_data_root",
     "data_root": "Cityscapes_sequence",
@@ -34,7 +34,7 @@ db_info["Cityscapes_sequence"] = {
     "test_annotations_path": "Cityscapes_sequence/Cityscapes_sequence/annotations/test.json",
     "val_annotations_path": "Cityscapes_sequence/Cityscapes_sequence/annotations/val.json",
 }
-# Cityscapes extra dataset, RGBD annotations
+# Cityscapes extra datasets, RGBD annotations
 db_info["Cityscapes_trainextra"] = {
     "db_root": "tbd_data_root",
     "data_root": "Cityscapes_trainextra",
@@ -50,8 +50,8 @@ db_info["Cityscapes_sequence_test"] = {
     "val_annotations_path": "Cityscapes_sequence/Cityscapes_sequence/annotations/test.json",
 }
 
-#### Lyft dataset
-# Lyft dataset, RGBD, neighbouring cameras, and consecutive frames annotations
+#### Lyft datasets
+# Lyft datasets, RGBD, neighbouring cameras, and consecutive frames annotations
 db_info["Lyft"] = {
     "db_root": "tbd_data_root",
     "data_root": "Lyft",
@@ -62,7 +62,7 @@ db_info["Lyft"] = {
     "test_annotations_path": "Lyft/Lyft/annotations/test.json",
     "val_annotations_path": "Lyft/Lyft/annotations/val.json",
 }
-# Lyft dataset, RGBD for ring cameras
+# Lyft datasets, RGBD for ring cameras
 db_info["Lyft_ring"] = {
     "db_root": "tbd_data_root",
     "data_root": "Lyft",
@@ -73,8 +73,8 @@ db_info["Lyft_ring"] = {
     "val_annotations_path": "Lyft/Lyft/annotations/val.json",
 }
 
-#### DSEC dataset
-# DSEC dataset, RGBD and consecutive frames annotaitons
+#### DSEC datasets
+# DSEC datasets, RGBD and consecutive frames annotaitons
 db_info["DSEC"] = {
     "db_root": "tbd_data_root",
     "data_root": "DSEC",
@@ -85,7 +85,7 @@ db_info["DSEC"] = {
 }
 
 #### Argovers2 Dataset
-# Argovers2 dataset, RGBD and neighbouring cameras annotaitons
+# Argovers2 datasets, RGBD and neighbouring cameras annotaitons
 db_info["Argovers2"] = {
     "db_root": "tbd_data_root",
     "data_root": "Argovers2",
@@ -95,7 +95,7 @@ db_info["Argovers2"] = {
     "test_annotations_path": "Argovers2/Argovers2/annotations/test.json",
     "val_annotations_path": "Argovers2/Argovers2/annotations/val.json",
 }
-# Argovers2 dataset, RGBD and consecutive cameras annotaitons
+# Argovers2 datasets, RGBD and consecutive cameras annotaitons
 db_info["Argovers2_tmpl"] = {
     "db_root": "tbd_data_root",
     "data_root": "Argovers2",
@@ -107,7 +107,7 @@ db_info["Argovers2_tmpl"] = {
 }
 
 #### DrivingStereo Dataset
-# DrivingStereo dataset, RGBD annotaitons for stereo data
+# DrivingStereo datasets, RGBD annotaitons for stereo data
 db_info["DrivingStereo"] = {
     "db_root": "tbd_data_root",
     "data_root": "DrivingStereo",
@@ -116,7 +116,7 @@ db_info["DrivingStereo"] = {
     "test_annotations_path": "DrivingStereo/DrivingStereo/annotations/test.json",
     "val_annotations_path": "DrivingStereo/DrivingStereo/annotations/val.json",
 }
-# DrivingStereo dataset, RGBD and consecutive frames annotaitons for stereo data
+# DrivingStereo datasets, RGBD and consecutive frames annotaitons for stereo data
 db_info["DrivingStereo_tmpl"] = {
     "db_root": "tbd_data_root",
     "data_root": "DrivingStereo",
@@ -127,7 +127,7 @@ db_info["DrivingStereo_tmpl"] = {
 }
 
 #### DIML Dataset
-# DIML dataset, RGBD annotaitons for stereo data
+# DIML datasets, RGBD annotaitons for stereo data
 db_info["DIML"] = {
     "db_root": "tbd_data_root",
     "data_root": "DIML",
@@ -153,7 +153,7 @@ db_info["NuScenes_tmpl"] = {
 }
 
 
-# Pandaset, RGBD + tmpl dataset
+# Pandaset, RGBD + tmpl datasets
 db_info["Pandaset"] = {
     "db_root": "tbd_data_root",
     "data_root": "Pandaset",
@@ -173,7 +173,7 @@ db_info["Pandaset_ring"] = {
     "val_annotations_path": "Pandaset/Pandaset/annotations/val.json",
 }
 
-# UASOL, RGBD + tmpl dataset
+# UASOL, RGBD + tmpl datasets
 db_info["UASOL"] = {
     "db_root": "tbd_data_root",
     "data_root": "UASOL_data",
@@ -184,7 +184,7 @@ db_info["UASOL"] = {
     "val_annotations_path": "UASOL_data/UASOL_data/annotations/test.json",
 }
 
-# Taskonomy, RGBD dataset
+# Taskonomy, RGBD datasets
 db_info["Taskonomy"] = {
     "db_root": "tbd_data_root",
     "data_root": "Taskonomy",
@@ -197,7 +197,7 @@ db_info["Taskonomy"] = {
 }
 
 ### WebStereo Datasets
-# HRWSI/Holopix dataset, RGBD and sky masks annotations
+# HRWSI/Holopix datasets, RGBD and sky masks annotations
 db_info["HRWSI_Holopix"] = {
     "db_root": "tbd_data_root",
     "data_root": "WebStereo",
@@ -218,7 +218,7 @@ db_info["Waymo"] = {
 }
 
 
-# DIODE, RGBD dataset
+# DIODE, RGBD datasets
 db_info["DIODE"] = {
     "db_root": "tbd_data_root",
     "data_root": "DIODE",
@@ -253,7 +253,7 @@ db_info["ETH3D"] = {
     "test_annotations_path": "ETH3D/ETH3D/annotations/test.json",
     "val_annotations_path": "ETH3D/ETH3D/annotations/test.json",
 }
-# NYU, RGBD dataset
+# NYU, RGBD datasets
 db_info["NYU"] = {
     "db_root": "tbd_data_root",
     "data_root": "NYU",
@@ -264,7 +264,7 @@ db_info["NYU"] = {
     "test_annotations_path": "NYU/NYU/annotations/test_normal.json",
     "val_annotations_path": "NYU/NYU/annotations/test.json",
 }
-# ScanNet, RGBD dataset
+# ScanNet, RGBD datasets
 db_info["ScanNet"] = {
     "db_root": "tbd_data_root",
     "data_root": "ScanNet",
@@ -272,7 +272,7 @@ db_info["ScanNet"] = {
     "test_annotations_path": "ScanNet/ScanNet/annotations/test.json",
     "val_annotations_path": "ScanNet/ScanNet/annotations/test.json",
 }
-# KITTI, RGBD dataset
+# KITTI, RGBD datasets
 db_info["KITTI"] = {
     "db_root": "tbd_data_root",
     "data_root": "",
@@ -283,7 +283,7 @@ db_info["KITTI"] = {
 
 
 ########### new training data
-# Blended_mvg, RGBD dataset
+# Blended_mvg, RGBD datasets
 db_info["BlendedMVG_omni"] = {
     "db_root": "tbd_data_root",
     "data_root": "Blended_mvg",
@@ -294,7 +294,7 @@ db_info["BlendedMVG_omni"] = {
     "val_annotations_path": "Blended_mvg/Blended_mvg/annotations/val.json",
 }
 
-# HM3D, RGBD dataset
+# HM3D, RGBD datasets
 db_info["HM3D"] = {
     "db_root": "tbd_data_root",
     "data_root": "HM3D",
@@ -305,7 +305,7 @@ db_info["HM3D"] = {
     "val_annotations_path": "HM3D/HM3d_omnidata/annotations/test.json",
 }
 
-# LeddarPixSet, RGBD dataset, some errors in the data
+# LeddarPixSet, RGBD datasets, some errors in the data
 db_info["LeddarPixSet"] = {
     "db_root": "tbd_data_root",
     "data_root": "LeddarPixSet",
@@ -315,7 +315,7 @@ db_info["LeddarPixSet"] = {
     "val_annotations_path": "LeddarPixSet/LeddarPixSet/annotations/val.json",
 }
 
-# RGBD dataset
+# RGBD datasets
 db_info["Replica"] = {
     "db_root": "tbd_data_root",
     "data_root": "Replica",

@@ -28,7 +28,7 @@ class CustomerMultiDataSampler(torch.utils.data.Sampler):
     e.g. dataset_list: [[A, B, C], [E, F], M], then group 'A,B,C' (Size(A) + Size(B) + Size(C)) has the same size
     as to group 'E,F' (Size(E) + Size(F)), so as to 'M'.
     args:
-        @ cfg: configs for each dataset.
+        @ cfg: configs for each datasets.
         @ dataset_merge: merged multiple datasets with the torch.utils.data.ConcatDataset method.
         @ phase: train/val/test phase.
     """
@@ -69,7 +69,7 @@ class CustomerMultiDataSampler(torch.utils.data.Sampler):
         return self.total_dist_size
 
     def create_samplers(self):
-        # sample idx for each dataset, idx value should not exceed the size of data,
+        # sample idx for each datasets, idx value should not exceed the size of data,
         # i.e. 0 <= idx < len(data_size)
         # self.samples_mat = []
         self.indices_mat = []
@@ -82,7 +82,7 @@ class CustomerMultiDataSampler(torch.utils.data.Sampler):
         dataset_cumulative_sizes = [0] + self.dataset_merge.cumulative_sizes
 
         for gi, dataset_group in enumerate(self.dataset_merge.datasets):
-            # the merged dataset consists of multiple grouped datasets
+            # the merged datasets consists of multiple grouped datasets
             samples_group = []
             indices_expand_group = []
             indices_group = []
@@ -113,7 +113,7 @@ class CustomerMultiDataSampler(torch.utils.data.Sampler):
                     sample_list_i = dataset_i_ori_sample_list
                 # samples_group.append(sample_list_i)
 
-                # expand the sample list for each dataset
+                # expand the sample list for each datasets
                 expand_size_i = expand_indices_sizes[di]
                 indices_expand_list = copy.deepcopy(sample_list_i)
 
@@ -181,7 +181,7 @@ class CustomerMultiDataSampler(torch.utils.data.Sampler):
             )
         # if main_process():
         self.logger.info(
-            f"Expanded data size in merged dataset: {self.total_sample_size}, adjusted data size for distributed running: {self.total_dist_size}"
+            f"Expanded data size in merged datasets: {self.total_sample_size}, adjusted data size for distributed running: {self.total_dist_size}"
         )
         self.random_seed += 413
         self.random_seed_cp += 377
@@ -190,8 +190,8 @@ class CustomerMultiDataSampler(torch.utils.data.Sampler):
 def build_data_array(cfg, phase):
     """
     Construct data repo with cfg. In cfg, there is a data name array, which encloses the name of each data.
-    Each data name links to a data config file. With this config file, dataset can be constructed.
-    e.g. [['A', 'B', 'C'], ['E', 'F'], 'M']. Each letter indicates a dataset.
+    Each data name links to a data config file. With this config file, datasets can be constructed.
+    e.g. [['A', 'B', 'C'], ['E', 'F'], 'M']. Each letter indicates a datasets.
     """
 
     datasets_array = []
@@ -208,12 +208,12 @@ def build_data_array(cfg, phase):
         for data_i in group_i:
             if not isinstance(data_i, dict):
                 raise TypeError(f"data name must be a dict, but got {type(data_i)}")
-            # each data only can employ a single dataset config
+            # each data only can employ a single datasets config
             assert len(data_i.values()) == 1
             if list(data_i.values())[0] not in cfg:
                 raise RuntimeError(f"cannot find the data config for {data_i}")
 
-            # dataset configure for data i
+            # datasets configure for data i
             # data_i_cfg = cfg[data_i]
             args = copy.deepcopy(cfg)  # data_i_cfg.copy()
             data_i_cfg_name = list(data_i.values())[0]
@@ -225,7 +225,7 @@ def build_data_array(cfg, phase):
             #     and data_i_db_info_name in cfg.evaluation.exclude:
             #     continue
 
-            # dataset lib name
+            # datasets lib name
             obj_name = cfg[data_i_cfg_name]["lib"]
             obj_path = (
                 os.path.dirname(__file__).split(os.getcwd() + "/")[-1].replace("/", ".")
@@ -264,7 +264,7 @@ def concatenate_datasets(datasets_array):
     """
     Merge grouped datasets to a single one.
     args:
-        @ dataset_list: the list of constructed dataset.
+        @ dataset_list: the list of constructed datasets.
     """
     # max_size = 0
     dataset_merge = []

@@ -29,7 +29,7 @@ from torch.utils.data import (
 
 
 class MixedBatchSampler(BatchSampler):
-    """Sample one batch from a selected dataset with given probability.
+    """Sample one batch from a selected datasets with given probability.
     Compatible with datasets at different resolution
     """
 
@@ -49,9 +49,9 @@ class MixedBatchSampler(BatchSampler):
         self.dataset_length = [len(ds) for ds in self.src_dataset_ls]
         self.cum_dataset_length = [
             sum(self.dataset_length[:i]) for i in range(self.n_dataset)
-        ]  # cumulative dataset length
+        ]  # cumulative datasets length
 
-        # BatchSamplers for each source dataset
+        # BatchSamplers for each source datasets
         if self.shuffle:
             self.src_batch_samplers = [
                 BatchSampler(
@@ -74,13 +74,13 @@ class MixedBatchSampler(BatchSampler):
             ]
         self.raw_batches = [
             list(bs) for bs in self.src_batch_samplers
-        ]  # index in original dataset
+        ]  # index in original datasets
         self.n_batches = [len(b) for b in self.raw_batches]
         self.n_total_batch = sum(self.n_batches)
 
         # sampling probability
         if prob is None:
-            # if not given, decide by dataset length
+            # if not given, decide by datasets length
             self.prob = torch.tensor(self.n_batches) / self.n_total_batch
         else:
             self.prob = torch.as_tensor(prob)
@@ -100,7 +100,7 @@ class MixedBatchSampler(BatchSampler):
                 self.raw_batches[idx_ds] = list(self.src_batch_samplers[idx_ds])
             # get a batch from list
             batch_raw = self.raw_batches[idx_ds].pop()
-            # shift by cumulative dataset length
+            # shift by cumulative datasets length
             shift = self.cum_dataset_length[idx_ds]
             batch = [n + shift for n in batch_raw]
 

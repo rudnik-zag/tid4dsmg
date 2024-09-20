@@ -329,7 +329,7 @@ class PWNPlanesLoss(nn.Module):
         :param data: target label, ground truth depth, [B, W, H, C], padding region [padding_up, padding_down]
         :return:
         """
-        dataset = kwargs["dataset"]
+        dataset = kwargs["datasets"]
         batch_mask = np.array(dataset) == "Taskonomy"
         if np.sum(batch_mask) == 0:
             return torch.sum(prediction) * 0.0

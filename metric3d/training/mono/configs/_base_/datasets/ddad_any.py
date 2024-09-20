@@ -1,4 +1,4 @@
-# dataset settings
+# datasets settings
 
 DDADAny_dataset = dict(
     lib="AnyDataset",
