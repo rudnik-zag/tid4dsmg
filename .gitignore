@@ -5,6 +5,7 @@ __pycache__/
 data/
 output/train_tests/
 external/
+results/
 *.idea/
 # C extensions
 *.so
