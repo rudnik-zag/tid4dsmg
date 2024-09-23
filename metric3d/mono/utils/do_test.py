@@ -3,8 +3,8 @@ import torch.nn.functional as F
 import logging
 import os
 import os.path as osp
-from metric3d.mono.utils.avg_meter import MetricAverageMeter
-from metric3d.mono.utils.visualization import (
+from mono.utils.avg_meter import MetricAverageMeter
+from mono.utils.visualization import (
     save_val_imgs,
     create_html,
     save_raw_imgs,
@@ -16,7 +16,7 @@ import numpy as np
 from PIL import Image
 import matplotlib.pyplot as plt
 
-from metric3d.mono.utils.unproj_pcd import reconstruct_pcd, save_point_cloud
+from mono.utils.unproj_pcd import reconstruct_pcd, save_point_cloud
 
 
 def to_cuda(data: dict):
