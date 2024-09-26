@@ -6,7 +6,7 @@ import cv2
 import imageio.v2 as imageio
 import numpy as np
 import torch
-from scene.SceneMenager import SceneManager
+from gaussian_splatting.scene.SceneMenager import SceneManager
 
 from external.gsplat.examples.datasets.normalize import (
     align_principle_axes,
@@ -50,7 +50,8 @@ class Parser:
         manager = SceneManager(colmap_dir)
         manager.load_cameras()
         manager.load_images()
-        manager.load_points3D()
+        # manager.load_points3D()
+        manager.load_ply_points(data_dir / "sparse/point_cloude.ply")
 
         # Extract extrinsic matrices in world-to-camera format.
         imdata = manager.images

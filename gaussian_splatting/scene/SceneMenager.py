@@ -5,13 +5,13 @@ import numpy as np
 import os
 import struct
 
-from collections import OrderedDict
+from collections import OrderedDict, defaultdict
 from itertools import combinations
 
 from pycolmap.camera import Camera
 from pycolmap.image import Image
 from pycolmap.rotation import Quaternion
-
+from gaussian_splatting.datatypes.ply_dataset import PlyData
 #-------------------------------------------------------------------------------
 #
 # SceneManager
@@ -213,7 +213,8 @@ class SceneManager:
                     self.last_image_id = max(self.last_image_id, image_id)
 
     #---------------------------------------------------------------------------
-
+    def load_ply_points(self, input_file=None):
+        self.ply_points = PlyData(input)
     def load_points3D(self, input_file=None):
         if input_file is None:
             input_file = self.folder + 'points3D.bin'

@@ -15,7 +15,8 @@ import tqdm
 import tyro
 import viser
 import yaml
-from external.gsplat.examples.datasets.colmap import Dataset, Parser
+#from external.gsplat.examples.datasets.colmap import Dataset, Parser
+from gaussian_splatting.datasets.plymetric3d import Dataset, Parser
 from external.gsplat.examples.datasets.traj import (
     generate_interpolated_path,
     generate_ellipse_path_z,
