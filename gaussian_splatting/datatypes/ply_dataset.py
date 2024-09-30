@@ -26,8 +26,8 @@ class PlyData:
 
         self.ply_files = list(ply_files)
         assert len(self.ply_files) == 1, "Directory contain more than one init point cloud."
-
-        self.pcd = o3d.io.read_point_cloud(self.ply_files[0])
+        print(f"Init point cloud: {self.ply_files[0]}")
+        self.pcd = o3d.io.read_point_cloud(str(self.ply_files[0]))
 
         
     @property

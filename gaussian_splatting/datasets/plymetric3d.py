@@ -50,8 +50,8 @@ class Parser:
         manager = SceneManager(colmap_dir)
         manager.load_cameras()
         manager.load_images()
-        # manager.load_points3D()
-        manager.load_ply_points(data_dir / "sparse/point_cloude.ply")
+        manager.load_points3D()
+        # manager.load_ply_points(data_dir / "sparse/point_cloude.ply")
 
         # Extract extrinsic matrices in world-to-camera format.
         imdata = manager.images
