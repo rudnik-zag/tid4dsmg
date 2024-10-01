@@ -21,7 +21,7 @@ max_value = 200
 data_basic = dict(
     canonical_space=dict(
         # img_size=(540, 960),
-        focal_length=1000.0,
+        focal_length=3840.0,
     ),
     depth_range=(0, 1),
     depth_normalize=(0.1, max_value),

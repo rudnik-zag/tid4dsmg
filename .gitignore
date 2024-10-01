@@ -5,6 +5,7 @@ __pycache__/
 data/
 output/train_tests/
 external/
+weight/
 results/
 *.idea/
 *.vscode/
