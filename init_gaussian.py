@@ -109,7 +109,7 @@ def create_splats_with_optimizers(
 def main(args):
     data_set = PlyData(args.data_folder)
     splats, opt = create_splats_with_optimizers(data_set)
-    step = 3
+    step = 5
     world_rank = 1
     data = {"step": step, "splats": splats.state_dict()}
 

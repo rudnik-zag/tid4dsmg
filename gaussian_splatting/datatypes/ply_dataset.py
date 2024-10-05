@@ -16,15 +16,17 @@ class PlyData:
     _data_dir: Path
     
     def __post_init__(self):
-        
-        try:
-            ply_files = self._data_dir.glob('*.ply')
-            if not ply_files:
-                raise Exception(f'Directory: {ply_files} does not conitan ply files.')
-        except:
-            raise Exception(f'Directory: {ply_files} does not conitan ply files.')
+        p = Path(self._data_dir)
 
-        self.ply_files = list(ply_files)
+        ply_files = list(self._data_dir.glob('*.ply'))
+        if not ply_files:
+            try:
+                ply_files = list(self._data_dir.glob('*.pcd'))
+            except Exception('Could not find pcd file.') as e:
+                raise Exception(f'Directory: {self._data_dir} does not contain ply or pcd files.') from e
+
+
+        self.ply_files = ply_files
         assert len(self.ply_files) == 1, "Directory contain more than one init point cloud."
         print(f"Init point cloud: {self.ply_files[0]}")
         self.pcd = o3d.io.read_point_cloud(str(self.ply_files[0]))
