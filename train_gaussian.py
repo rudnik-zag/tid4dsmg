@@ -344,6 +344,7 @@ class Runner:
                 raise ValueError(f"Unknown compression strategy: {cfg.compression}")
 
         self.pose_optimizers = []
+        # Camera Optim, not by default
         if cfg.pose_opt:
             self.pose_adjust = CameraOptModule(len(self.trainset)).to(self.device)
             self.pose_adjust.zero_init()
@@ -357,13 +358,16 @@ class Runner:
             if world_size > 1:
                 self.pose_adjust = DDP(self.pose_adjust)
 
+        # Not by default
         if cfg.pose_noise > 0.0:
             self.pose_perturb = CameraOptModule(len(self.trainset)).to(self.device)
             self.pose_perturb.random_init(cfg.pose_noise)
             if world_size > 1:
                 self.pose_perturb = DDP(self.pose_perturb)
 
+        
         self.app_optimizers = []
+        # Not by default
         if cfg.app_opt:
             assert feature_dim is not None
             self.app_module = AppearanceOptModule(
