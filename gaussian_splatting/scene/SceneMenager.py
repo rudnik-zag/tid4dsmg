@@ -8,10 +8,14 @@ import struct
 from collections import OrderedDict, defaultdict
 from itertools import combinations
 
-from pycolmap.camera import Camera
-from pycolmap.image import Image
-from pycolmap.rotation import Quaternion
+# from pycolmap.camera import Camera
+from gaussian_splatting.models.camera import Camera
+# from pycolmap.image import Image
+from gaussian_splatting.models.image import Image
+# from pycolmap.rotation import Quaternion
+from gaussian_splatting.models.rotation import Quaternion
 from gaussian_splatting.datatypes.ply_dataset import PlyData
+# import external.colmap.scripts.python.read_write_model as colmap
 #-------------------------------------------------------------------------------
 #
 # SceneManager
@@ -19,8 +23,7 @@ from gaussian_splatting.datatypes.ply_dataset import PlyData
 #-------------------------------------------------------------------------------
 #TODO: Adapt for my point data
 class SceneManager:
-    INVALID_POINT3D = np.uint64(-1)
-
+    INVALID_POINT3D = np.int64(-1)
     def __init__(self, colmap_results_folder, image_path=None):
         self.folder = colmap_results_folder
         if not self.folder.endswith('/'):
@@ -88,6 +91,7 @@ class SceneManager:
             input_file = self.folder + 'cameras.bin'
             if os.path.exists(input_file):
                 self._load_cameras_bin(input_file)
+                # self._load_cameras_using_colmap(input_file)
             else:
                 input_file = self.folder + 'cameras.txt'
                 if os.path.exists(input_file):
@@ -95,18 +99,63 @@ class SceneManager:
                 else:
                     raise IOError('no cameras file found')
     
+    def read_cameras_bin_my(self, bin_path):
+        with open(bin_path, "rb") as f:
+            # Read number of cameras
+            num_cameras = struct.unpack("<Q", f.read(8))[0]
+            cameras = {}
+            for _ in range(num_cameras):
+                # Read each camera's data
+                camera_id = struct.unpack("<I", f.read(4))[0]
+                model_id = struct.unpack("<i", f.read(4))[0]
+                width = struct.unpack("<Q", f.read(8))[0]
+                height = struct.unpack("<Q", f.read(8))[0]
+                num_params = struct.unpack("<Q", f.read(8))[0]
+                params = struct.unpack(f"<{num_params}d", f.read(num_params * 8))
+
+                # Store camera data in a dictionary
+                cameras[camera_id] = {
+                    "model_id": model_id,
+                    "width": width,
+                    "height": height,
+                    "params": params
+                }
+
+        return cameras
     def _load_cameras_bin(self, input_file):
         self.cameras = OrderedDict()
-
         with open(input_file, 'rb') as f:
             num_cameras = struct.unpack('L', f.read(8))[0]
 
             for _ in range(num_cameras):
                 camera_id, camera_type, w, h = struct.unpack('IiLL', f.read(24))
+                
                 num_params = Camera.GetNumParams(camera_type)
                 params = struct.unpack('d' * num_params, f.read(8 * num_params))
                 self.cameras[camera_id] = Camera(camera_type, w, h, params)
                 self.last_camera_id = max(self.last_camera_id, camera_id)
+    
+    # def _load_cameras_using_colmap(self, input_file):
+    #     self.cameras = OrderedDict()
+    #     colmap_camera_params = colmap.read_cameras_binary(input_file)
+        
+    #     for k,camera in colmap_camera_params.items():
+    #         w = camera.width
+    #         h = camera.height
+    #         camera_id = camera.id
+    #         camera_type = camera.model
+    #         params = camera.params
+    #         tmp_cam = Camera()
+    #         tmp_cam.model = camera_type
+    #         tmp_cam.width = w
+    #         tmp_cam.height = h
+    #         tmp_cam.params = params
+    #         tmp_cam.camera_id = camera_id
+            
+    #         self.cameras[camera_id] = tmp_cam
+            
+    #         self.last_camera_id = max(self.last_camera_id, camera_id)
+            
 
     def _load_cameras_txt(self, input_file):
         self.cameras = OrderedDict()
@@ -135,10 +184,38 @@ class SceneManager:
                     self._load_images_txt(input_file)
                 else:
                     raise IOError('no images file found')
+    
+    # def _load_images_bin_using_colmap(self, input_file):
+    #     self.images = OrderedDict()
+    #     colmap_images_params = colmap.read_images_binary(input_file)
+        
+    #     for i, image in colmap_images_params.items():
 
+    #         image_id = image.id
+    #         name = image.name
+    #         q_r = pycolmap.Rotation3d(image.qvec)
+    #         q = q_r.quat()      
+    #         t = image.tvec
+    #         camera_id = image.camera_id
+    #         tmp_img = pycolmap.Image()
+    #         tmp_img.name = name
+    #         tmp_img.camera_id = camera_id
+    #         tmp_img.q = q
+    #         tmp_img.t = t
+    #         tmp_img.image_id = image_id
+    #         tmp_img.point2D = image.xys
+    #         tmp_img.poin
+
+    #         self.images[image_id] = tmp_img
+    #         self.name_to_image_id[image.name] = image_id
+
+    #         self.last_image_id = max(self.last_image_id, image_id)
+            
+    
     def _load_images_bin(self, input_file):
         self.images = OrderedDict()
-
+        # colmap_images_params = colmap.read_images_binary(input_file)
+        
         with open(input_file, 'rb') as f:
             num_images = struct.unpack('L', f.read(8))[0]
             image_struct = struct.Struct('<I 4d 3d I')
@@ -149,8 +226,8 @@ class SceneManager:
                 t = np.array(data[5:8])
                 camera_id = data[8]
                 name = b''.join(c for c in iter(lambda: f.read(1), b'\x00')).decode()
-
                 image = Image(name, camera_id, q, t)
+
                 num_points2D = struct.unpack('Q', f.read(8))[0]
 
                 # Optimized code below.
