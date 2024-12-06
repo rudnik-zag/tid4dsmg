@@ -4,7 +4,13 @@ __pycache__/
 *$py.class
 data/
 output/train_tests/
+gaussian_splatting/config_files/
+gaussian_splatting/tests/
+external/
+weight/
+results/
 *.idea/
+*.vscode/
 # C extensions
 *.so
 
@@ -12,9 +18,11 @@ output/train_tests/
 .Python
 build/
 develop-eggs/
-nerfstudio/marigoldm/input/
-nerfstudio/marigoldm/output/
+marigoldm/input/
+marigoldm/output/
+marigoldm/prs-eth/
 nerfstudio/data
+nerfstudio/
 nerfstudio/outputs
 ckpt/
 pretraned_models/
