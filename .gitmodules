@@ -1,3 +1,3 @@
 [submodule "gsplat"]
-	path = external
+	path = external/gsplat
 	url = https://github.com/nerfstudio-project/gsplat.git
