@@ -1,0 +1,4 @@
+[submodule "external"]
+	path = external
+	url = https://github.com/nerfstudio-project/gsplat.git
+	ignore = all
