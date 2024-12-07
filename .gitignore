@@ -6,7 +6,6 @@ data/
 output/train_tests/
 gaussian_splatting/config_files/
 gaussian_splatting/tests/
-external/*
 weight/
 results/
 *.idea/
