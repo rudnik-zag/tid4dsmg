@@ -1,0 +1,56 @@
+#COLMAP - https://colmap.github.io/install.html#installation, https://github.com/colmap/pycolmap
+
+Build colmap from source to install pycolmap
+    1. Build colmap and install
+
+    sudo apt-get install \
+    git \
+    cmake \
+    ninja-build \
+    build-essential \
+    libboost-program-options-dev \
+    libboost-filesystem-dev \
+    libboost-graph-dev \
+    libboost-system-dev \
+    libeigen3-dev \
+    libflann-dev \
+    libfreeimage-dev \
+    libmetis-dev \
+    libgoogle-glog-dev \
+    libgtest-dev \
+    libgmock-dev \
+    libsqlite3-dev \
+    libglew-dev \
+    qtbase5-dev \
+    libqt5opengl5-dev \
+    libcgal-dev \
+    libceres-dev
+
+    To compile with CUDA support, also install Ubuntu’s default CUDA package: - ako nije vec instalirana
+
+    sudo apt-get install -y \
+        nvidia-cuda-toolkit \
+        nvidia-cuda-toolkit-gcc
+
+    Configure and compile COLMAP:
+
+    git clone https://github.com/colmap/colmap.git
+    cd colmap
+    mkdir build
+    cd build
+    cmake .. -GNinja
+    ninja
+    sudo ninja install
+
+    colmap -h
+    colmap gui
+
+    Build PyCOLMAP:
+
+        On Linux and macOS:
+
+        python -m pip install ./pycolmap/
+
+        Ako nevidi cublass dodati pre [project]:
+            [tool.scikit-build.cmake]
+            args=["-DBLAS_LIBRARIES=/usr/lib/x86_64-linux-gnu/blas/libblas.so", "-DLAPACK_LIBRARIES=/usr/lib/x86_64-linux-gnu/lapack/liblapack.so"]
