@@ -4,3 +4,9 @@
 [submodule "external/marigold"]
 	path = external/marigold
 	url = https://github.com/prs-eth/Marigold.git
+[submodule "external/metric3d"]
+	path = external/metric3d
+	url = https://github.com/YvanYin/Metric3D.git
+[submodule "external/colmap"]
+	path = external/colmap
+	url = https://github.com/colmap/colmap.git
