@@ -14,7 +14,7 @@ from gaussian_splatting.models.camera import Camera
 from gaussian_splatting.models.image import Image
 # from pycolmap.rotation import Quaternion
 from gaussian_splatting.models.rotation import Quaternion
-from gaussian_splatting.datatypes.ply_dataset import PlyData
+# from gaussian_splatting.datatypes.ply_dataset import PlyData
 # import external.colmap.scripts.python.read_write_model as colmap
 #-------------------------------------------------------------------------------
 #
@@ -290,8 +290,8 @@ class SceneManager:
                     self.last_image_id = max(self.last_image_id, image_id)
 
     #---------------------------------------------------------------------------
-    def load_ply_points(self, input_file=None):
-        self.ply_points = PlyData(input)
+    # def load_ply_points(self, input_file=None):
+    #     self.ply_points = PlyData(input)
     def load_points3D(self, input_file=None):
         if input_file is None:
             input_file = self.folder + 'points3D.bin'
