@@ -6,7 +6,8 @@ data/
 output/train_tests/
 gaussian_splatting/config_files/
 gaussian_splatting/tests/
-weight/
+external/metric3d/weight/
+external/marigold/prs-eth/
 results/
 *.idea/
 *.vscode/
