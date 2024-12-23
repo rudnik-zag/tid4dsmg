@@ -9,6 +9,8 @@ gaussian_splatting/tests/
 external/metric3d/weight/
 external/marigold/prs-eth/
 results/
+modifed_ex/
+weights_ex/
 *.idea/
 *.vscode/
 # C extensions

@@ -1,0 +1,11 @@
+accelerate>=0.22.0
+diffusers>=0.25.0
+matplotlib
+scipy
+transformers>=4.32.1
+omegaconf
+pandas
+tabulate
+h5py
+opencv-python
+tensorboard
