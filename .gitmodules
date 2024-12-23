@@ -10,3 +10,6 @@
 [submodule "external/colmap"]
 	path = external/colmap
 	url = https://github.com/colmap/colmap.git
+[submodule "external/moge"]
+	path = external/moge
+	url = https://github.com/microsoft/MoGe.git
