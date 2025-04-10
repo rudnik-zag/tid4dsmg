@@ -13,3 +13,9 @@
 [submodule "external/moge"]
 	path = external/moge
 	url = https://github.com/microsoft/MoGe.git
+[submodule "external/compvis"]
+	path = external/compvis
+	url = https://github.com/CompVis/latent-diffusion.git
+[submodule "external/prefpaint"]
+	path = external/prefpaint
+	url = https://github.com/Kenkenzaii/PrefPaint.git
